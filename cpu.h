@@ -1,20 +1,18 @@
 #include<iostream>
 #include<cstdlib>
-#include"board.h"
 
 using namespace std; 
 
-class CPU
+class CPU: public Board
 {
     public: int moves; 
-            Board b;
 
             void FindAndPlace(int i)
             {
                 for(int k=0;k<3;k++)
                 { 
-                    if(b.board[i][k] =='-')
-                        b.Mark(i,k,b.cpu); 
+                    if(board[i][k] =='-')
+                        Mark(i,k,cpu); 
                 }
             }
             bool Startegy1()
@@ -23,7 +21,7 @@ class CPU
                 {   int count=0; 
                     for(int j=0;j<3;j++)
                     {
-                        if(j==b.player)
+                        if(j==player)
                         {
                             count+=1; 
                         }
@@ -47,11 +45,11 @@ class CPU
                 do{
                 r= (rand()%3);
                 c= (rand()%3);}
-                while(b.board[r][c] != '-');
+                while(board[r][c] != '-');
 
-                b.Mark(r,c,b.cpu);
+                Mark(r,c,cpu);
             }
-            void Move()
+            void CPUMove()
             {
                 if(!Startegy1())
                 {

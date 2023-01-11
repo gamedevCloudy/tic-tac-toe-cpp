@@ -5,7 +5,8 @@ using namespace std;
 
 class Board
 { 
-    public: char board[3][3]; 
+    public: 
+            char board[3][3]; 
             char player,cpu; 
 
             Board()
@@ -26,6 +27,7 @@ class Board
                         board[i][j]='-';
       
             }
+            
 
             void Mark(int row,int col, char id)
             {

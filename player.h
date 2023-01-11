@@ -3,17 +3,16 @@
 #include"board.h"
 using namespace std; 
 
-class Player
+class Player: public Board
 {
     public: int moves; 
-            Board b; 
-            void Move()
+            void PlayerMove()
             {
                 int i,j=0; 
                 cout<<"Enter row and column to place in: ";
                 cin>>i>>j;
-                if(b.board[i][j] !='-') Move();
-                else b.Mark(i,j,b.player);
+                if(board[i][j] !='-') PlayerMove();
+                else Mark(i,j,player);
                 moves+=1;
             }
 };

@@ -3,10 +3,12 @@
 
 using namespace std; 
 
+char boards[3][3]; 
+
 class Board
 { 
     public: 
-            char board[3][3]; 
+            char board[3][3] = boards; 
             char player,cpu; 
 
             Board()

@@ -2,9 +2,10 @@
 #include<cstdlib>
 using namespace std; 
 
+char board[3][3];
 class Board
 { 
-    public: char board[3][3]; 
+    public:  
             char player,cpu; 
 
             Board()
@@ -25,6 +26,8 @@ class Board
                         board[i][j]='-';
       
             }
+
+            
 
             void Mark(int row,int col, char id)
             {
@@ -84,7 +87,7 @@ class Player
                 int i,j=0; 
                 cout<<"Enter row and column to place in: ";
                 cin>>i>>j;
-                if(b.board[i][j] !='-') Move();
+                if(board[i][j] !='-') Move();
                 else b.Mark(i,j,b.player);
                 moves+=1;
             }
@@ -99,7 +102,7 @@ class CPU
             {
                 for(int k=0;k<3;k++)
                 { 
-                    if(b.board[i][k] =='-')
+                    if(board[i][k] =='-')
                         b.Mark(i,k,b.cpu); 
                 }
             }
@@ -133,7 +136,7 @@ class CPU
                 do{
                 r= (rand()%3);
                 c= (rand()%3);}
-                while(b.board[r][c] != '-');
+                while(board[r][c] != '-');
 
                 b.Mark(r,c,b.cpu);
             }
@@ -154,12 +157,15 @@ int main()
     Board b;
     Player player1; 
     CPU cpu1;
-    player1.b = b; 
-    cpu1.b=b;
-    b.Display();
-    player1.Move();
-    player1.b.Display();
-    cpu1.Move();
-    cpu1.b.Display();
+    
+    while(true)
+    {
+        player1.Move();
+        b.Display();
+        b.WinCheck();
+        cpu1.Move();
+        b.WinCheck();
+        b.Display();
+    }
     return 0;
 }

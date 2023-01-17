@@ -8,7 +8,7 @@ char boards[3][3];
 class Board
 { 
     public: 
-            char board[3][3] = boards; 
+            char board[3][3]; 
             char player,cpu; 
 
             Board()

@@ -7,7 +7,7 @@
 <br>
 
 ![build: passing](https://img.shields.io/badge/build-developing-yellow)
-![version](https://img.shields.io/badge/version-0.1.3a-success)
+![version](https://img.shields.io/badge/version-0.1.7%20beta-lightgreen)
 [![Hits](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp.svg)](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp)
 </div>
 

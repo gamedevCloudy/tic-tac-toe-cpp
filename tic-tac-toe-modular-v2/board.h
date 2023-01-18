@@ -7,6 +7,7 @@ using namespace std;
 class Board
 { 
     private:int moveCount;
+    
     public: char board[3][3]; 
             char player,cpu; 
 
@@ -71,38 +72,42 @@ class Board
             {
                 for(int i=0; i<3; i++)
                 {
-                    if( (board[i][0]==board[i][1]==board[i][2])& (board[i][2]=='X'| board[i][2]=='O')) 
+                    if( (board[i][0]==board[i][1] && board[i][0]==board[i][2]))
                         return board[i][0];
-                    else if( (board[0][i]==board[1][i]==board[2][i]) & (board[0][i]=='X' | board[0][i]=='O')) 
+                    if( (board[0][i]==board[1][i] && board[0][i]==board[2][i])) 
                         return board[0][i];
                 }
-                if((board[0][0]==board[1][1]==board[2][2]) & (board[0][0]=='X'| board[0][0]=='O')) return board[0][0];
-                else if((board[0][2]==board[1][1]==board[2][0]) & (board[0][2]=='X' | board[0][2]=='O')) return board[0][2];
-
-                return '-';
+                if((board[0][0]==board[1][1] && board[0][0]==board[2][2])) 
+                    return board[0][0];
+                else if(board[0][2]==board[1][1] && board[0][2]==board[2][0])
+                    return board[0][2];
+                else return '-';
             }
 
             void WinCheck()
             {
                 char w=Winner(); 
-                cout<<"\nwincheck: "<<w<<"\t"<<GetMoveCount(); 
-
-                if(w==player){
+                int mCt= GetMoveCount();
+                //cout<<"\nwincheck: "<<w<<"\t"<<GetMoveCount(); 
+                if(mCt>5)
+                {
+                    if(w==player){
                     cout<<"\nPLAYER WINS"; 
                     exit(0);
+                    }
+                    else if(w==cpu)
+                    {
+                        cout<<"\nCPU WINS!"; 
+                        exit(0);
+                    }
                 }
-                else if(w==cpu)
+                
+                if(mCt==9)
                 {
-                    cout<<"\nCPU WINS!"; 
-                    exit(0);
-                }
-                if(GetMoveCount()==9)
-                {
-                    cout<<"\nBoard Full: TIE!";
+                    cout<<"\n\nTIE!";
                     exit(0);
                 }
             }
-
-            
+       
 };
 

@@ -13,7 +13,11 @@ class Player: virtual public Board
                 cout<<"\nEnter row and column to place in: ";
                 cin>>i>>j;
                 if(board[i][j] !='-') PlayerMove();
-                else Mark(i,j,player);
+                else 
+                {
+                    cout<<"\nTRY AGAIN!";
+                    Mark(i,j,player);
+                }
                 
             }
 };
@@ -27,7 +31,8 @@ class CPU: virtual public Board
                 for(int k=0;k<3;k++)
                 { 
                     if(board[i][k] =='-')
-                    {    Mark(i,k,cpu); 
+                    {    
+                        Mark(i,k,cpu); 
                     }
                 }
             }
@@ -44,7 +49,6 @@ class CPU: virtual public Board
                         if (count==2)
                         { 
                             FindAndPlace(i);
-        
                             return true;
                         }
                     }

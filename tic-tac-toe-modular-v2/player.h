@@ -1,9 +1,24 @@
 #include<iostream>
 #include<cstdlib>
-
+#include"board.h"
 using namespace std; 
 
-class CPU: public Board
+class Player: virtual public Board
+{
+    public: int moves; 
+            void PlayerMove()
+            {
+                int i,j=0; 
+                cout<<"\nEnter row and column to place in: ";
+                cin>>i>>j;
+                if(board[i][j] !='-') PlayerMove();
+                else Mark(i,j,player);
+                moves+=1;
+            }
+};
+
+
+class CPU: virtual public Board
 {
     public: int moves; 
 
@@ -28,6 +43,7 @@ class CPU: public Board
                         if (count==2)
                         { 
                             FindAndPlace(i);
+                            WinCheck();
                             return true;
                         }
                     }
@@ -46,8 +62,8 @@ class CPU: public Board
                 r= (rand()%3);
                 c= (rand()%3);}
                 while(board[r][c] != '-');
-
                 Mark(r,c,cpu);
+                WinCheck();
             }
             void CPUMove()
             {

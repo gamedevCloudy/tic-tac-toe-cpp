@@ -1,14 +1,14 @@
 #include<iostream>
 #include<cstdlib>
 
-#include"player.h"
-#include"cpu.h"
+#include"gamemanager.h"
+
 
 
 int main()
 {
 
-    Player p;
-    CPU c;
+    GameManager gm;
+    
     return 0;
 }

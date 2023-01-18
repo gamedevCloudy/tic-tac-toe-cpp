@@ -3,7 +3,7 @@
 #include"board.h"
 using namespace std; 
 
-class Player: public Board
+class Player: virtual public Board
 {
     public: int moves; 
             void PlayerMove()

@@ -1,11 +1,12 @@
 #include<iostream>
 #include<cstdlib>
 #include"board.h"
+
 using namespace std; 
 
 class Player: virtual public Board
 {
-    public: int moves; 
+    public: 
             void PlayerMove()
             {
                 int i,j=0; 
@@ -13,21 +14,21 @@ class Player: virtual public Board
                 cin>>i>>j;
                 if(board[i][j] !='-') PlayerMove();
                 else Mark(i,j,player);
-                moves+=1;
+                
             }
 };
 
 
 class CPU: virtual public Board
 {
-    public: int moves; 
-
+    public:
             void FindAndPlace(int i)
             {
                 for(int k=0;k<3;k++)
                 { 
                     if(board[i][k] =='-')
-                        Mark(i,k,cpu); 
+                    {    Mark(i,k,cpu); 
+                    }
                 }
             }
             bool Startegy1()
@@ -43,7 +44,7 @@ class CPU: virtual public Board
                         if (count==2)
                         { 
                             FindAndPlace(i);
-                            WinCheck();
+        
                             return true;
                         }
                     }
@@ -63,7 +64,7 @@ class CPU: virtual public Board
                 c= (rand()%3);}
                 while(board[r][c] != '-');
                 Mark(r,c,cpu);
-                WinCheck();
+                
             }
             void CPUMove()
             {

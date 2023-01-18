@@ -3,16 +3,16 @@
 
 using namespace std; 
 
-char boards[3][3]; 
 
 class Board
 { 
-    public: 
-            char board[3][3]; 
+    private:int moveCount;
+    public: char board[3][3]; 
             char player,cpu; 
 
             Board()
             {
+                moveCount=0;
                 cout<<"\nYour Mark: "; 
                 cin>>player; 
 
@@ -27,13 +27,27 @@ class Board
                 for(int i =0; i<3;i++)
                     for(int j=0; j<3;j++)
                         board[i][j]='-';
-      
+
+                Display();
             }
             
 
             void Mark(int row,int col, char id)
             {
                 board[row][col]=id; 
+                UpdateMoveCount();
+                Display();
+                WinCheck();
+            }
+
+    private:int GetMoveCount()
+            {
+                return moveCount;
+            }
+
+            void UpdateMoveCount()
+            {
+                moveCount++;
             }
 
             void Display()
@@ -50,14 +64,17 @@ class Board
                     cout<<"\n"; 
                 }
                 cout<<"\n -------------------------------------------------"; 
+                
             }
 
             char Winner()
             {
                 for(int i=0; i<3; i++)
                 {
-                    if( (board[i][0]==board[i][1]==board[i][2])& (board[i][2]=='X'| board[i][2]=='O')) return board[i][0];
-                    else if( (board[0][i]==board[1][i]==board[2][i]) & (board[0][i]=='X' | board[0][i]=='O')) return board[0][i];
+                    if( (board[i][0]==board[i][1]==board[i][2])& (board[i][2]=='X'| board[i][2]=='O')) 
+                        return board[i][0];
+                    else if( (board[0][i]==board[1][i]==board[2][i]) & (board[0][i]=='X' | board[0][i]=='O')) 
+                        return board[0][i];
                 }
                 if((board[0][0]==board[1][1]==board[2][2]) & (board[0][0]=='X'| board[0][0]=='O')) return board[0][0];
                 else if((board[0][2]==board[1][1]==board[2][0]) & (board[0][2]=='X' | board[0][2]=='O')) return board[0][2];
@@ -68,6 +85,7 @@ class Board
             void WinCheck()
             {
                 char w=Winner(); 
+                cout<<"\nwincheck: "<<w<<"\t"<<GetMoveCount(); 
 
                 if(w==player){
                     cout<<"\nPLAYER WINS"; 
@@ -78,6 +96,13 @@ class Board
                     cout<<"\nCPU WINS!"; 
                     exit(0);
                 }
+                if(GetMoveCount()==9)
+                {
+                    cout<<"\nBoard Full: TIE!";
+                    exit(0);
+                }
             }
 
+            
 };
+

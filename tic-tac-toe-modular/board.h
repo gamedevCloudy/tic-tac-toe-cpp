@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdlib>
+#include<string>
 
 using namespace std; 
 
@@ -10,26 +11,13 @@ class Board
     
     public: char board[3][3]; 
             char player,cpu; 
+            int mode;
+
 
             Board()
             {
-                moveCount=0;
-                cout<<"\nYour Mark: "; 
-                cin>>player; 
-
-                if(player=='X') cpu='O'; 
-                else if(player=='O') cpu='X'; 
-                else
-                {
-                    cout<<"\nTRY AGAIN!"; 
-                    Board();
-                } 
-
-                for(int i =0; i<3;i++)
-                    for(int j=0; j<3;j++)
-                        board[i][j]='-';
-
-                Display();
+                Start();
+                CreateBoard();
             }
             
 
@@ -41,7 +29,40 @@ class Board
                 WinCheck();
             }
 
-    private:int GetMoveCount()
+    private:
+            
+            void Start()
+            {
+                moveCount=0;
+
+                cout<<"\n-----------------------------------------------------";
+                cout<<"\nTIC TAC TOE\n";
+                cout<<"\n-----------------------------------------------------";
+
+                cout<<"Select Mode: "; 
+                cout<<"\n1. Vs. CPU \n2. Vs. Player";
+                SelectMode();
+            }
+
+            void SelectMode()
+            {
+                cout<<"MODE: ";
+                cin>>mode;
+                if(mode!=1)
+                    if(mode !=2)
+                    {
+                        cout<<"\nTRY AGAIN!";
+                        SelectMode();
+                    }
+            }
+
+            void CreateBoard()
+            {
+                for(int i =0; i<3;i++)
+                    for(int j=0; j<3;j++)
+                        board[i][j]='-';
+            }
+            int GetMoveCount()
             {
                 return moveCount;
             }

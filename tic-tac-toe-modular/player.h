@@ -10,13 +10,39 @@ class Player: virtual public Board
             void PlayerMove()
             {
                 int i,j=0; 
+                cout<<"\nTurn: Player 1";
                 cout<<"\nEnter row and column to place in: ";
                 cin>>i>>j;
-                if(board[i][j] !='-') PlayerMove();
-                else 
+                if(board[i][j] !='-')
                 {
                     cout<<"\nTRY AGAIN!";
+                    PlayerMove();   
+                } 
+                else 
+                {
                     Mark(i,j,player);
+                }
+                
+            }
+};
+
+class Player2: virtual public Board
+{
+    public: 
+            void PlayerMove2()
+            {
+                int i,j=0; 
+                cout<<"\nTurn: Player 2";
+                cout<<"\nEnter row and column to place in: ";
+                cin>>i>>j;
+                if(board[i][j] !='-') 
+                {
+                    cout<<"\nTRY AGAIN!";
+                    PlayerMove2();
+                }   
+                else 
+                {
+                    Mark(i,j,cpu);
                 }
                 
             }

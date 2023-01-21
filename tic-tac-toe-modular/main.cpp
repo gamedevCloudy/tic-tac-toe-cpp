@@ -6,13 +6,6 @@
 
 int main()
 {
-    GameManager gm;
-    
-    while(true)
-    {
-        gm.PlayerMove();
-        
-        gm.CPUMove();
-    }
+    GameManager GM;
     return 0;
 }

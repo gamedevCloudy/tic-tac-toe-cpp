@@ -39,14 +39,14 @@ class Board
                 cout<<"\nTIC TAC TOE\n";
                 cout<<"\n-----------------------------------------------------";
 
-                cout<<"Select Mode: "; 
+                cout<<"\nModes: "; 
                 cout<<"\n1. Vs. CPU \n2. Vs. Player";
                 SelectMode();
             }
 
             void SelectMode()
             {
-                cout<<"MODE: ";
+                cout<<"\nSELECT MODE: ";
                 cin>>mode;
                 if(mode!=1)
                     if(mode !=2)
@@ -118,7 +118,10 @@ class Board
                     }
                     else if(w==cpu)
                     {
-                        cout<<"\nCPU WINS!"; 
+                        if(mode==1)
+                            cout<<"\nCPU WINS!"; 
+                        else if(mode==2)
+                            cout<<"\nPlayer 2 WINS!"; 
                         exit(0);
                     }
                 }

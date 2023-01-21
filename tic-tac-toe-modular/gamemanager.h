@@ -3,17 +3,19 @@
 #include"player.h"
 using namespace std; 
 
-class GameManager: public CPU,public Player
+class GameManager: public CPU,public Player, public Player2
 {
     public: GameManager()
             {
                 if(mode==1)
                 {
                     SinglePlayer();
+                    PlayerVsCpu();
                 }
                 else if(mode==2)
                 {
                     TwoPlayer();
+                    PlayerVsPlayer();
                 }
             }
 
@@ -39,7 +41,39 @@ class GameManager: public CPU,public Player
             }
             void TwoPlayer()
             {
+                cout<<"\n\nSTART GAME!!!";
 
+               
+                cout<<"Player 1 Mark: "; 
+                cin>>player; 
+
+                if(player=='X') cpu='O'; 
+                else if(player=='O') cpu='X'; 
+                else
+                {
+                    cout<<"\nTRY AGAIN!"; 
+                    
+                    TwoPlayer();
+                } 
+
+            }
+
+            void  PlayerVsCpu()
+            {
+                while(true)
+                {
+                    PlayerMove();
+                    
+                    CPUMove();
+                }
+            }
+            void PlayerVsPlayer()
+            {
+                while(true)
+                {
+                    PlayerMove();
+                    PlayerMove2();    
+                }
             }
 
 };

@@ -64,16 +64,19 @@ class CPU: virtual public Board
             }
             bool Startegy1()
             {
+                cout<<"\nRow Block: \n";
                 for(int i=0;i<3;i++)
                 {   int count=0; 
                     for(int j=0;j<3;j++)
                     {
-                        if(j==player)
+                        if(board[i][j]==cpu) return false;
+                        if(board[i][j]==player)
                         {
                             count+=1; 
                         }
                         if (count==2)
                         { 
+
                             FindAndPlace(i);
                             return true;
                         }
@@ -83,11 +86,33 @@ class CPU: virtual public Board
             }
             bool Strategy2()
             {
+                cout<<"\nColumn Block: \n";
+                for(int i=0; i<3;i++)
+                {   
+                    if(board[0][i]==board[1][i] and board[0][i]==player and board[2][i]=='-')
+                    {
+                        Mark(2,i,cpu);
+                        return true;
+
+                    }
+                    else if(board[0][i]==board[2][i]  and board[0][i]==player and board[1][i]=='-')
+                    {
+                        Mark(1,i,cpu);
+                        return true;
+                    }
+                    else if(board[1][i]==board[2][i]  and board[1][i]==player and board[0][i]=='-')
+                    {
+                        Mark(0,i,cpu);
+                        return true;
+                    }
+                    else return false;
+                }
                 return false;
             }
 
             void PlaceAtRandom()
             {
+                cout<<"\nRandom Block: \n";
                 int r,c =1; 
                 do{
                 r= (rand()%3);

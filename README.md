@@ -8,8 +8,8 @@
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) 
 <br>
 
-![build: passing](https://img.shields.io/badge/build-developing-yellow)
-![version](https://img.shields.io/badge/version-0.1.7%20beta-lightgreen)
+![build: passing](https://img.shields.io/badge/build-Playable-yellow)
+![version](https://img.shields.io/badge/version-0.1.12-lightgreen)
 [![Hits](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp.svg)](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp)
 <br>
 
@@ -17,6 +17,9 @@
 ![CLI](https://img.shields.io/badge/RunsVia-CLI-yellow)
 ![Mode1](https://img.shields.io/badge/Mode-VsCpu-red)
 ![Mode2](https://img.shields.io/badge/Mode-TwoPlayer-blue)
+![Reset System](https://img.shields.io/badge/System-Reset%20System-green)
+![Score System](https://img.shields.io/badge/System-Score%20System-green)
+![AI](https://img.shields.io/badge/AI-Smart%20Enemey%20AI-yellow)
 <br>
 
 ![Screenshot](.images/screenshot.png)
@@ -28,8 +31,7 @@
 
 - Score System
 - Better AI
-    - Block player forks
-    - create self forks
+    - Create self forks
 - Front End
 - (exagerated) engine for similar kind of games 
 - Customisability: 
@@ -40,7 +42,7 @@
 
 ---
 ### Contributing: 
-- Add 
+- Add:
     - Features, 
     - Gameplay Mechanics, 
     - Front end, 

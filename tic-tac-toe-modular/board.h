@@ -98,7 +98,23 @@ class Board
                 
             }
 
-            
+            void DisplayScore()
+            {
+                cout<<"\n -------------------------------------------------"; 
+                cout<<"\nScore:"<<playerScore<<"-"<<cpuScore;
+                
+                if(mode==1)
+                {
+                    cout<<"\nPlayer: "<<playerScore;
+                    cout<<"\nCPU: "<<cpuScore;
+                }
+                else{
+                    cout<<"\nPlayer 1: "<<playerScore;
+                    cout<<"\nPlayer 2: "<<cpuScore;
+                }
+
+                cout<<"\n -------------------------------------------------"; 
+            }
             void ResetMenu()
             {
                 char opt;
@@ -137,13 +153,13 @@ class Board
             {
                 char w=Winner(); 
                 int mCt= GetMoveCount();
-                //cout<<"\nwincheck: "<<w<<"\t"<<GetMoveCount(); 
                 if(mCt>5)
                 {
                     if(w==player)
                     {
                         playerScore+=1;
                         cout<<"\nPLAYER WINS"; 
+                        DisplayScore();
                         ResetMenu();
                     }
                     else if(w==cpu)
@@ -152,12 +168,14 @@ class Board
                         {
                             cpuScore+=1;
                             cout<<"\nCPU WINS!"; 
+                            DisplayScore();
                             ResetMenu();
                         }
                         else if(mode==2)
                         {
                             cpuScore+=1;
                             cout<<"\nPlayer 2 WINS!"; 
+                            DisplayScore();
                             ResetMenu();
                         }
                         
@@ -167,6 +185,7 @@ class Board
                 if(mCt==9)
                 {
                     cout<<"\n\nTIE!";
+                    DisplayScore();
                     ResetMenu();
                 }
             }

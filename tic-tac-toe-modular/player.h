@@ -64,7 +64,6 @@ class CPU: virtual public Board
             }
             bool Startegy1()
             {
-                cout<<"\nRow Block: \n";
                 for(int i=0;i<3;i++)
                 {   int count=0; 
                     for(int j=0;j<3;j++)
@@ -78,6 +77,7 @@ class CPU: virtual public Board
                         { 
 
                             FindAndPlace(i);
+                            // cout<<"\nRow Block: \n";
                             return true;
                         }
                     }
@@ -86,23 +86,24 @@ class CPU: virtual public Board
             }
             bool Strategy2()
             {
-                cout<<"\nColumn Block: \n";
                 for(int i=0; i<3;i++)
                 {   
                     if(board[0][i]==board[1][i] and board[0][i]==player and board[2][i]=='-')
                     {
                         Mark(2,i,cpu);
+                        // cout<<"\nColumn Block: \n";
                         return true;
-
                     }
                     else if(board[0][i]==board[2][i]  and board[0][i]==player and board[1][i]=='-')
                     {
                         Mark(1,i,cpu);
+                        // cout<<"\nColumn Block: \n";
                         return true;
                     }
                     else if(board[1][i]==board[2][i]  and board[1][i]==player and board[0][i]=='-')
                     {
                         Mark(0,i,cpu);
+                        // cout<<"\nColumn Block: \n";
                         return true;
                     }
                     else return false;

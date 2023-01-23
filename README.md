@@ -29,7 +29,6 @@
 
 ### Future Possibilities: 
 
-- Score System
 - Better AI
     - Create self forks
 - Front End

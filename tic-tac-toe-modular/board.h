@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cstdlib>
-#include<string>
+
 
 using namespace std; 
 
@@ -8,11 +8,14 @@ using namespace std;
 class Board
 { 
     private:int moveCount;
+            int playerScore;
+            int cpuScore;
+
     
     public: char board[3][3]; 
             char player,cpu; 
             int mode;
-
+            bool reset;
 
             Board()
             {
@@ -34,6 +37,7 @@ class Board
             void Start()
             {
                 moveCount=0;
+                reset=false;
 
                 cout<<"\n-----------------------------------------------------";
                 cout<<"\nTIC TAC TOE\n";
@@ -72,6 +76,11 @@ class Board
                 moveCount++;
             }
 
+            void SetMoveCount(int count)
+            {
+                moveCount= count;
+            }
+
             void Display()
             {
                 cout<<"\n -------------------------------------------------"; 
@@ -89,6 +98,25 @@ class Board
                 
             }
 
+            
+            void ResetMenu()
+            {
+                char opt;
+
+                cout<<"\nPlay Again?"; 
+                cout<<"\nY/N: "; 
+                cin>>opt;
+                if(opt!='Y')
+                    exit(0);
+                else
+                {
+                    
+                    CreateBoard();
+                    Display();
+                    reset=true;
+                    SetMoveCount(0);
+                }
+            }
             char Winner()
             {
                 for(int i=0; i<3; i++)
@@ -112,24 +140,34 @@ class Board
                 //cout<<"\nwincheck: "<<w<<"\t"<<GetMoveCount(); 
                 if(mCt>5)
                 {
-                    if(w==player){
-                    cout<<"\nPLAYER WINS"; 
-                    exit(0);
+                    if(w==player)
+                    {
+                        playerScore+=1;
+                        cout<<"\nPLAYER WINS"; 
+                        ResetMenu();
                     }
                     else if(w==cpu)
                     {
                         if(mode==1)
+                        {
+                            cpuScore+=1;
                             cout<<"\nCPU WINS!"; 
+                            ResetMenu();
+                        }
                         else if(mode==2)
+                        {
+                            cpuScore+=1;
                             cout<<"\nPlayer 2 WINS!"; 
-                        exit(0);
+                            ResetMenu();
+                        }
+                        
                     }
                 }
                 
                 if(mCt==9)
                 {
                     cout<<"\n\nTIE!";
-                    exit(0);
+                    ResetMenu();
                 }
             }
        

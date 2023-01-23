@@ -57,7 +57,21 @@ class GameManager: public CPU,public Player, public Player2
                 } 
 
             }
-
+            void CheckReset()
+            {
+                if(reset==true)
+                {
+                    reset=false;
+                    if(mode==1)
+                    {
+                        PlayerVsCpu();
+                    }
+                    else if(mode==2)
+                    {
+                        PlayerVsPlayer();
+                    }
+                }
+            }
             void  PlayerVsCpu()
             {
                 while(true)

@@ -6,10 +6,10 @@
 <br>
 
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) 
-<br>
 
-![build: passing](https://img.shields.io/badge/build-Playable-yellow)
-![version](https://img.shields.io/badge/version-0.1.12-lightgreen)
+
+![build: passing](https://img.shields.io/badge/build-Playable-lightgreen)
+![version](https://img.shields.io/badge/version-0.1.13-lightgreen)
 [![Hits](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp.svg)](https://hits.sh/github.com/gamedevCloudy/tic-tac-toe-cpp)
 <br>
 
@@ -17,8 +17,12 @@
 ![CLI](https://img.shields.io/badge/RunsVia-CLI-yellow)
 ![Mode1](https://img.shields.io/badge/Mode-VsCpu-red)
 ![Mode2](https://img.shields.io/badge/Mode-TwoPlayer-blue)
+<br>
+
 ![Reset System](https://img.shields.io/badge/System-Reset%20System-green)
 ![Score System](https://img.shields.io/badge/System-Score%20System-green)
+
+
 ![AI](https://img.shields.io/badge/AI-Smart%20Enemey%20AI-yellow)
 <br>
 

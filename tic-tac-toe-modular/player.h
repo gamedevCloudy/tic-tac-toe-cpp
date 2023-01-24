@@ -62,7 +62,7 @@ class CPU: virtual public Board
                     }
                 }
             }
-            bool Startegy1()
+            bool BlockRow()
             {
                 for(int i=0;i<3;i++)
                 {   int count=0; 
@@ -84,7 +84,7 @@ class CPU: virtual public Board
                 }
                 return false; 
             }
-            bool Strategy2()
+            bool BlockColumn()
             {
                 for(int i=0; i<3;i++)
                 {   
@@ -111,6 +111,40 @@ class CPU: virtual public Board
                 return false;
             }
 
+            bool BlockDiagonals()
+            {
+                if(board[0][0]==board[2][2]  and board[0][0]==player and board[1][1]=='-')
+                {
+                    Mark(1,1,cpu);
+                    return true;
+                }
+                else if(board[0][0]==board[1][1]  and board[0][0]==player and board[2][2]=='-')
+                {
+                    Mark(2,2,cpu);
+                    return true;
+                }
+                else if(board[2][2]==board[1][1]  and board[2][2]==player and board[0][0]=='-')
+                {
+                    Mark(0,0,cpu);
+                    return true;
+                }
+                else if(board[0][2]==board[2][0]  and board[0][2]==player and board[1][1]=='-')
+                {
+                    Mark(1,1,cpu);
+                    return true;
+                }
+                else if(board[0][2]==board[1][1]  and board[0][2]==player and board[2][0]=='-')
+                {
+                    Mark(2,0,cpu);
+                    return true;
+                }
+                else if(board[2][0]==board[1][1]  and board[0][2]==player and board[0][2]=='-')
+                {
+                    Mark(0,2,cpu);
+                    return true;
+                }
+                else return false;
+            }
             void PlaceAtRandom()
             {
                 cout<<"\nRandom Block: \n";
@@ -122,14 +156,12 @@ class CPU: virtual public Board
                 Mark(r,c,cpu);
                 
             }
+
             void CPUMove()
             {
-                if(!Startegy1())
-                {
-                    if(!Strategy2())
-                    {
-                        PlaceAtRandom(); 
-                    }
-                }
+                if(!BlockRow())
+                    if(!BlockColumn())
+                        if(!BlockDiagonals())
+                            PlaceAtRandom();
             }
 };
